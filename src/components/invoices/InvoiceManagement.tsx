@@ -8,7 +8,7 @@ import { ErrorMessage } from '../common/ErrorMessage';
 import { Modal } from '../common/Modal';
 import { Pagination } from '../common/Pagination';
 import { pdf } from '@react-pdf/renderer';
-import InvoicePDF from './InvoicePdf';
+import InvoicePDF from './InvoicePDF';
 import { InvoiceForm } from './InvoiceForm';
 import { useCustomers, useInventory } from '../../hooks/useApi';
 

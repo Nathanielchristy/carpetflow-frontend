@@ -254,7 +254,7 @@ export const InvoiceManagement = () => {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
                       <FileText className="h-5 w-5 text-blue-600 mr-2" />
-                      <span className="font-medium text-gray-900">{invoice.id}</span>
+                      <span className="font-medium text-gray-900">{invoice.invoiceNumber}</span>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">

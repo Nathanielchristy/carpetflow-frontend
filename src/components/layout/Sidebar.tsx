@@ -55,10 +55,10 @@ export const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
   const menuItems = getMenuItems();
 
   return (
-    <aside className="bg-white shadow-lg h-screen w-64 flex flex-col fixed md:static top-0 left-0 z-40 md:z-auto transition-transform md:translate-x-0 md:relative md:w-64 min-h-0 overflow-y-auto">
-      <div className="p-6 border-b border-gray-200">
-        <h1 className="text-xl font-bold text-gray-900">Carpet Flow</h1>
-        <p className="text-sm text-gray-500 mt-1">{user?.location === 'all' ? 'All Locations' : user?.location}</p>
+    <aside className="bg-white shadow-lg h-screen w-16 md:w-64 flex flex-col fixed md:static top-0 left-0 z-40 md:z-auto transition-transform md:translate-x-0 md:relative min-h-0 overflow-y-auto">
+      <div className="p-4 md:p-6 border-b border-gray-200">
+        <h1 className="text-xl font-bold text-gray-900 hidden md:block">Carpet Flow</h1>
+        <p className="text-sm text-gray-500 mt-1 hidden md:block">{user?.location === 'all' ? 'All Locations' : user?.location}</p>
       </div>
 
       <nav className="flex-1 p-4">
@@ -75,8 +75,8 @@ export const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                   }`}
                 >
-                  <Icon className="h-5 w-5 mr-3" />
-                  {item.label}
+                  <Icon className="h-5 w-5 md:mr-3" />
+                  <span className="hidden md:inline">{item.label}</span>
                 </button>
               </li>
             );
@@ -85,7 +85,7 @@ export const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
       </nav>
 
       <div className="p-4 border-t border-gray-200 mt-auto">
-        <div className="mb-4">
+        <div className="mb-4 hidden md:block">
           <div className="text-sm font-medium text-gray-900">{user?.fullName}</div>
           <div className="text-xs text-gray-500 capitalize">{user?.role}</div>
         </div>
@@ -93,8 +93,8 @@ export const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
           onClick={logout}
           className="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg transition-colors"
         >
-          <LogOut className="h-4 w-4 mr-3" />
-          Sign Out
+          <LogOut className="h-4 w-4 md:mr-3" />
+          <span className="hidden md:inline">Sign Out</span>
         </button>
       </div>
     </aside>

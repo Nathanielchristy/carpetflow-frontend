@@ -146,8 +146,8 @@ const InvoicePDF: React.FC<InvoicePDFProps> = ({ invoice }) => {
             <View style={styles.tableRow} key={item.id}>
                 <Text style={styles.tableCol}>{item.carpet.name}</Text>
                 <Text style={styles.tableCol}>{item.quantity}</Text>
-                <Text style={styles.tableCol}>{item.unitPrice.toFixed(2)}</Text>
-                <Text style={styles.tableCol}>{item.total.toFixed(2)}</Text>
+                <Text style={styles.tableCol}>{(item.unitPrice || 0).toFixed(2)}</Text>
+                <Text style={styles.tableCol}>{(item.total || 0).toFixed(2)}</Text>
             </View>
             ))}
         </View>
@@ -155,20 +155,20 @@ const InvoicePDF: React.FC<InvoicePDFProps> = ({ invoice }) => {
         {/* Totals */}
         <View style={styles.totalsRow}>
           <Text style={styles.totalsLabel}>Subtotal:</Text>
-          <Text style={styles.totalsValue}>{invoice.subtotal.toFixed(2)}</Text>
+          <Text style={styles.totalsValue}>{(invoice.subtotal || 0).toFixed(2)}</Text>
         </View>
         <View style={styles.totalsRow}>
-          <Text style={styles.totalsLabel}>Discount ({invoice.discountPercentage} %):</Text>
-          <Text style={styles.totalsValue}>{invoice.discountAmount.toFixed(2)}</Text>
+          <Text style={styles.totalsLabel}>Discount ({invoice.discountPercentage || 0} %):</Text>
+          <Text style={styles.totalsValue}>{(invoice.discountAmount || 0).toFixed(2)}</Text>
         </View>
         <View style={styles.totalsRow}>
-          <Text style={styles.totalsLabel}>Tax ({invoice.taxPercentage} %):</Text>
-          <Text style={styles.totalsValue}>{invoice.taxAmount.toFixed(2)}</Text>
+          <Text style={styles.totalsLabel}>Tax ({invoice.taxPercentage || 0} %):</Text>
+          <Text style={styles.totalsValue}>{(invoice.taxAmount || 0).toFixed(2)}</Text>
         </View>
         <View style={styles.totalsRow}>
           <Text style={[styles.totalsLabel, { fontSize: 13 }]}>Total:</Text>
           <Text style={[styles.totalsValue, { fontSize: 13 }]}>
-            {invoice.total.toFixed(2)}
+            {(invoice.total || 0).toFixed(2)}
           </Text>
         </View>
 

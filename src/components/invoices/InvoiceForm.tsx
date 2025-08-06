@@ -51,6 +51,14 @@ export const InvoiceForm = ({ invoice, customers, inventory, onSubmit, onCancel,
   const handleItemChange = (index: number, field: string, value: any) => {
     const newItems = [...formData.items];
     newItems[index][field] = value;
+
+    if (field === 'carpet') {
+      const selectedCarpet = inventory.find(inv => inv.id === value);
+      if (selectedCarpet) {
+        newItems[index].unitPrice = selectedCarpet.unitPrice;
+      }
+    }
+
     setFormData(prev => ({ ...prev, items: newItems }));
   };
 

@@ -12,7 +12,7 @@ export const DashboardStats = ({ stats, userRole }: DashboardStatsProps) => {
     const baseCards = [
       {
         title: 'Total Sales',
-        value: `$${stats.totalSales.toLocaleString()}`,
+        value: `${stats.totalSales.toLocaleString()} AED`,
         icon: DollarSign,
         color: 'bg-green-500',
         show: ['admin', 'salesperson', 'accountant']
@@ -40,7 +40,7 @@ export const DashboardStats = ({ stats, userRole }: DashboardStatsProps) => {
       },
       {
         title: 'Monthly Revenue',
-        value: `$${stats.monthlyRevenue.toLocaleString()}`,
+        value: `${stats.monthlyRevenue.toLocaleString()} AED`,
         icon: TrendingUp,
         color: 'bg-emerald-500',
         show: ['admin', 'accountant']

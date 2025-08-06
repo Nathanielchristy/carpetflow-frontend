@@ -157,20 +157,20 @@ const InvoicePDF: React.FC<InvoicePDFProps> = ({ invoice }) => {
         {/* Totals */}
         <View style={styles.totalsRow}>
           <Text style={styles.totalsLabel}>Subtotal:</Text>
-          <Text style={styles.totalsValue}>{(invoice.subtotal || 0).toFixed(2)}</Text>
+          <Text style={styles.totalsValue}>{(invoice.subtotal || 0).toFixed(2)} AED</Text>
         </View>
         <View style={styles.totalsRow}>
           <Text style={styles.totalsLabel}>Discount ({invoice.discountPercentage || 0} %):</Text>
-          <Text style={styles.totalsValue}>{(invoice.discountAmount || 0).toFixed(2)}</Text>
+          <Text style={styles.totalsValue}>{(invoice.discountAmount || 0).toFixed(2)} AED</Text>
         </View>
         <View style={styles.totalsRow}>
           <Text style={styles.totalsLabel}>Tax ({invoice.taxPercentage || 0} %):</Text>
-          <Text style={styles.totalsValue}>{(invoice.taxAmount || 0).toFixed(2)}</Text>
+          <Text style={styles.totalsValue}>{(invoice.taxAmount || 0).toFixed(2)} AED</Text>
         </View>
         <View style={styles.totalsRow}>
           <Text style={[styles.totalsLabel, { fontSize: 13 }]}>Total:</Text>
           <Text style={[styles.totalsValue, { fontSize: 13 }]}>
-            {(invoice.total || 0).toFixed(2)}
+            {(invoice.total || 0).toFixed(2)} AED
           </Text>
         </View>
 

@@ -265,9 +265,8 @@ export const InvoiceManagement = () => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
-                      <DollarSign className="h-4 w-4 text-green-600 mr-1" />
                       <span className="font-medium text-gray-900">
-                        {invoice.total.toLocaleString()}
+                        {invoice.total.toLocaleString()} AED
                       </span>
                     </div>
                   </td>

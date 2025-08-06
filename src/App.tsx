@@ -51,9 +51,9 @@ const AppContent = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex">
       <Sidebar activeSection={activeSection} onSectionChange={setActiveSection} />
-      <div className="flex-1 overflow-auto">
+      <main className="flex-1 overflow-auto ml-20 md:ml-0">
         {renderContent()}
-      </div>
+      </main>
     </div>
   );
 };

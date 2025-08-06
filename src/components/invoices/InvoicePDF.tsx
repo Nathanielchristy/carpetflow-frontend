@@ -92,6 +92,12 @@ type InvoicePDFProps = {
 };
 
 const InvoicePDF: React.FC<InvoicePDFProps> = ({ invoice }) => {
+  const formatDate = (date: string | Date) => {
+    if (!date) return 'N/A';
+    const d = new Date(date);
+    return isNaN(d.getTime()) ? 'Invalid Date' : d.toLocaleDateString();
+  };
+
   return (
     <Document>
       <Page size="A5" style={styles.page}>
@@ -105,14 +111,10 @@ const InvoicePDF: React.FC<InvoicePDFProps> = ({ invoice }) => {
             </Text>
             <Text>
               <Text style={styles.label}>Date: </Text>
-              {new Date(invoice.createdAt).toLocaleDateString()}
+              {formatDate(invoice.createdAt)}
             </Text>
           </View>
           <View style={styles.invoiceInfoRow}>
-            <Text>
-              <Text style={styles.label}>Due Date: </Text>
-              {new Date(invoice.dueDate).toLocaleDateString()}
-            </Text>
             <Text>
               <Text style={styles.label}>Status: </Text>
               {invoice.status.charAt(0).toUpperCase() + invoice.status.slice(1)}

@@ -9,6 +9,7 @@ import { CustomerManagement } from './components/customers/CustomerManagement';
 import { InvoiceManagement } from './components/invoices/InvoiceManagement';
 import { Reports } from './components/reports/Reports';
 import { UserManagement } from './components/users/UserManagement';
+import POS from './components/pos/POS';
 
 const AppContent = () => {
   const { user, loading } = useAuth();
@@ -29,6 +30,12 @@ const AppContent = () => {
     return <LoginForm />;
   }
 
+  // If user is a salesperson, show the POS interface
+  if (user.role === 'salesperson') {
+    return <POS />;
+  }
+
+  // For other roles, show the standard dashboard
   const renderContent = () => {
     switch (activeSection) {
       case 'dashboard':

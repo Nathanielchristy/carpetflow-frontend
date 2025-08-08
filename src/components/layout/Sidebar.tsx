@@ -34,6 +34,7 @@ export const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
         { id: 'users', label: 'User Management', icon: Settings },
       ],
       salesperson: [
+        { id: 'pos', label: 'POS', icon: DollarSign },
         { id: 'customers', label: 'Customers', icon: Users },
         { id: 'invoices', label: 'Invoices', icon: FileText },
         { id: 'inventory', label: 'View Inventory', icon: Package },

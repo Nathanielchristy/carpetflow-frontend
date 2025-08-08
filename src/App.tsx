@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider, useAuth } from './hooks/useAuth';
 import { LoginForm } from './components/auth/LoginForm';
@@ -15,6 +15,12 @@ const AppContent = () => {
   const { user, loading } = useAuth();
   const [activeSection, setActiveSection] = useState('dashboard');
 
+  useEffect(() => {
+    if (user) {
+      setActiveSection(user.role === 'salesperson' ? 'pos' : 'dashboard');
+    }
+  }, [user]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
@@ -30,14 +36,10 @@ const AppContent = () => {
     return <LoginForm />;
   }
 
-  // If user is a salesperson, show the POS interface
-  if (user.role === 'salesperson') {
-    return <POS />;
-  }
-
-  // For other roles, show the standard dashboard
   const renderContent = () => {
     switch (activeSection) {
+      case 'pos':
+        return <POS />;
       case 'dashboard':
         return <Dashboard />;
       case 'inventory':
